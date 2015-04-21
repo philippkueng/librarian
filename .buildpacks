@@ -1,3 +1,3 @@
-https://github.com/heroku/heroku-buildpack-nodejs.git
-https://github.com/samcday/heroku-buildpack-brunch.git
-https://github.com/HashNuke/heroku-buildpack-elixir.git
+https://github.com/heroku/heroku-buildpack-nodejs.git#34cffc9b6397bc1ce97a4b5e911fa771fc4e7907
+https://github.com/samcday/heroku-buildpack-brunch.git#76795452d609017bb34554885650ea4e786b4900
+https://github.com/HashNuke/heroku-buildpack-elixir.git#36f2ff22d0236589256d9044091b950b7cc565d2
