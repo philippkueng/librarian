@@ -12,5 +12,6 @@
   },
   "engines": {
     "node": "~ 0.12.1"
-  }
+  },
+  "postinstall": "node_modules/.bin/brunch build"
 }
