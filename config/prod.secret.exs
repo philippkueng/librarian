@@ -7,6 +7,7 @@ defmodule Heroku do
                           |> String.split(":")
     [_, database] = parsed_uri.path
                     |> String.split("/")
+
     [{:username, username},
      {:password, password},
      {:hostname, parsed_uri.host},
@@ -24,5 +25,6 @@ config :librarian, Librarian.Endpoint,
 
 # Configure your database
 config :librarian, Librarian.Repo,
-  System.get_env("DATABASE_URL")
+  "DATABASE_URL"
+  |> System.get_env
   |> Heroku.database_config
