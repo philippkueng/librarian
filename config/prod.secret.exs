@@ -9,7 +9,7 @@ defmodule Heroku do
                     |> String.split("/")
     [{:username, username},
      {:password, password},
-     {:host, parsed_uri.host},
+     {:hostname, parsed_uri.host},
      {:database, database},
      {:port, parsed_uri.port},
      {:adapter, Ecto.Adapters.Postgres}]
