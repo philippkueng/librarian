@@ -13,7 +13,7 @@ defmodule Google do
       strategy: __MODULE__,
       client_id: System.get_env("GOOGLE_CLIENT_ID"),
       client_secret: System.get_env("GOOGLE_CLIENT_SECRET"),
-      redirect_uri: System.get_env("REDIRECT_URI"),
+      redirect_uri: System.get_env("GOOGLE_REDIRECT_URI"),
       site: "",
       authorize_url: "https://accounts.google.com/o/oauth2/auth",
       token_url: "https://accounts.google.com/o/oauth2/token"
