@@ -21,11 +21,13 @@ defmodule Google do
   end
 
   def authorize_url!(params \\ []) do
-    OAuth2.Client.authorize_url!(new(), params)
+    new()
+    |> put_param(:scope, "email, profile")
+    |> OAuth2.Client.authorize_url!(params)
   end
 
   def get_token!(params \\ [], headers \\ []) do
-    OAuth2.Client.get_token!(new(), params)
+    OAuth2.Client.get_token!(new(), params, headers)
   end
 
   # Strategy Callbacks
