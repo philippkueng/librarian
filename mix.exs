@@ -17,7 +17,7 @@ defmodule Librarian.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Librarian, []},
-     applications: [:phoenix, :cowboy, :logger, :ecto]]
+     applications: [:phoenix, :cowboy, :logger, :ecto, :oauth2]]
   end
 
   # Specifies which paths to compile per environment
