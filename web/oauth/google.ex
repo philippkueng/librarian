@@ -14,7 +14,7 @@ defmodule Google do
       client_id: System.get_env("GOOGLE_CLIENT_ID"),
       client_secret: System.get_env("GOOGLE_CLIENT_SECRET"),
       redirect_uri: System.get_env("GOOGLE_REDIRECT_URI"),
-      site: "",
+      site: "https://www.googleapis.com",
       authorize_url: "https://accounts.google.com/o/oauth2/auth",
       token_url: "https://accounts.google.com/o/oauth2/token"
     ])
