@@ -7,30 +7,33 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Phoenix!</title>
+    <title>Librarian</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-        </ul>
-        <span class="logo"></span>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Librarian</a>
+        </div>
       </div>
+    </div>
+    <div class="jumbotron">
+      <%= if @current_user do %>
+        <h2>Welcome, <%= @current_user["name"] %>!</h2>
+      <% else %>
+        <a class="btn btn-primary btn-lg" href="<%= github_path @conn, :index %>">
+          <i class="fa fa-github"></i>
+          Sign in with GitHub
+        </a>
+      <% end %>
+    </div>
 
-      <p class="alert alert-info"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger"><%= get_flash(@conn, :error) %></p>
-
+    <div class="container-fluid">
       <%= @inner %>
-
-      <div class="footer">
-        <p><a href="http://phoenixframework.org">phoenixframework.org</a></p>
-      </div>
-
-    </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-    <script>require("web/static/js/app")</script>
+    </div>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"</script>
+    <script>require("/web/static/app")</script>
   </body>
 </html>
