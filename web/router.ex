@@ -20,10 +20,13 @@ defmodule Librarian.Router do
     resources "/users", UserController
   end
 
-  scope "/auth", Librarian do
+  scope "/authentication", Librarian do
     pipe_through :browser
-    get "/", AuthController, :index
-    get "/callback", AuthController, :callback
+
+    scope "/github", Authentication do
+      get "/", GithubController, :index
+      get "/callback", GithubController, :callback
+    end
   end
 
   # Other scopes may use custom stacks.
