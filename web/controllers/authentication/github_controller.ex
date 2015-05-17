@@ -1,4 +1,4 @@
-defmodule Librarian.AuthController do
+defmodule Librarian.Authentication.GithubController do
   use Librarian.Web, :controller
 
   plug :action
@@ -8,7 +8,7 @@ defmodule Librarian.AuthController do
   based on the chosen strategy.
   """
   def index(conn, _params) do
-    redirect conn, external: Google.authorize_url!
+    redirect conn, external: Github.authorize_url!
   end
 
   @doc """
@@ -19,7 +19,7 @@ defmodule Librarian.AuthController do
   """
   def callback(conn, %{"code" => code}) do
     # Exchange an auth code for an access token
-    token = Google.get_token!(code: code)
+    token = Github.get_token!(code: code)
 
     # Request the user's data with the access token
     user = OAuth2.AccessToken.get!(token, "/user")
