@@ -1,6 +1,6 @@
-defmodule GitHub do
+defmodule Github do
   @moduledoc """
-  An OAuth2 strategy for GitHub.
+  An OAuth2 strategy for Github.
   """
   use OAuth2.Strategy
 
