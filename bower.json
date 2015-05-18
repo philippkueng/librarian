@@ -1,0 +1,16 @@
+{
+  "name": "librarian",
+  "version": "0.0.0",
+  "homepage": "https://github.com/philippkueng/librarian",
+  "authors": [
+    "Philipp Küng <git@philippkueng.ch>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
