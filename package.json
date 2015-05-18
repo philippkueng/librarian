@@ -1,6 +1,5 @@
 {
-  "repository": {
-  },
+  "repository": {},
   "dependencies": {
     "brunch": "git://github.com/brunch/brunch#5176b6b4bf70cd8cb9dad0058dd3e83e8d983218",
     "babel-brunch": "^4.0.0",
@@ -14,6 +13,9 @@
     "node": "~ 0.12.1"
   },
   "scripts": {
-    "postinstall": "node_modules/.bin/brunch build"  
+    "postinstall": "node_modules/.bin/brunch build"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1"
   }
 }
