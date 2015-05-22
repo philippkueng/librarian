@@ -14,7 +14,7 @@
     "node": "~ 0.12.1"
   },
   "scripts": {
-    "postinstall": "node_modules/.bin/brunch build"
+    "postinstall": "node_modules/.bin/bower install && node_modules/.bin/brunch build"
   },
   "devDependencies": {
   }
