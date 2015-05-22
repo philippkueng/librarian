@@ -7,7 +7,8 @@
     "css-brunch": ">= 1.0 < 1.8",
     "javascript-brunch": ">= 1.0 < 1.8",
     "sass-brunch": "git://github.com/brunch/sass-brunch.git#master",
-    "uglify-js-brunch": ">= 1.0 < 1.8"
+    "uglify-js-brunch": ">= 1.0 < 1.8",
+    "bower": "^1.4.1"
   },
   "engines": {
     "node": "~ 0.12.1"
@@ -16,6 +17,5 @@
     "postinstall": "node_modules/.bin/brunch build"
   },
   "devDependencies": {
-    "bower": "^1.4.1"
   }
 }
