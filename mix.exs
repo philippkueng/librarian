@@ -34,6 +34,7 @@ defmodule Librarian.Mixfile do
      {:phoenix_live_reload, "~> 0.4"},
      {:phoenix_html, "~> 1.0"},
      {:cowboy, "~> 1.0.0"},
-     {:oauth2, "~> 0.1.1"}]
+     {:oauth2, "~> 0.1.1"},
+     {:passport, "~> 0.0.1"}]
   end
 end
