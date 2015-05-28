@@ -4,11 +4,12 @@ defmodule Librarian.User do
   schema "users" do
     field :name, :string
     field :email, :string
+    field :crypted_password, :string
 
     timestamps
   end
 
-  @required_fields ~w(name email)
+  @required_fields ~w(email crypted_password)
   @optional_fields ~w()
 
   @doc """
