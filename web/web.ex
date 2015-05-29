@@ -46,6 +46,9 @@ defmodule Librarian.Web do
       # Import URL helpers from the router
       import Librarian.Router.Helpers
 
+      # Passport allows to check if an user is signed in or not.
+      import Passport.SessionManager, only: [current_user: 1, logged_in?: 1]
+
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
     end

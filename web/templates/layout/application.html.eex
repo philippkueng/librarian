@@ -20,12 +20,16 @@
       </div>
     </div>
     <div class="jumbotron">
-      <%= if @current_user do %>
-        <h2>Welcome, <%= @current_user["name"] %>!</h2>
+      <%= if logged_in?(@conn) do %>
+        <%= current_user(@conn).email %>
+        <a class="btn btn-primary btn-lg" href="<%= session_path @conn, :delete %>">
+          <i class="fa fa-session"></i>
+          Logout
+        </a>
       <% else %>
-        <a class="btn btn-primary btn-lg" href="<%= github_path @conn, :index %>">
-          <i class="fa fa-github"></i>
-          Sign in with GitHub
+        <a class="btn btn-primary btn-lg" href="<%= session_path @conn, :new %>">
+          <i class="fa fa-session"></i>
+          Login
         </a>
       <% end %>
     </div>
