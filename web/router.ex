@@ -38,7 +38,7 @@ defmodule Librarian.Router do
   end
 
   scope "/authentication", Librarian do
-    pipe_through :browser
+    pipe_through [:browser, :authentication]
 
     scope "/github", Authentication do
       get "/", GithubController, :index
