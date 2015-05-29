@@ -18,6 +18,14 @@ defmodule Librarian.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+
+    # Login & Registration
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    get "/logout", SessionController, :delete
+
+    get "/signup", RegistrationController, :new
+    post "/signup", RegistrationController, :create
   end
 
   scope "/authentication", Librarian do
