@@ -1,6 +1,15 @@
 defmodule Librarian.Router do
   use Phoenix.Router
 
+  import Passport.AuthenticationPlug
+  pipeline :authentication do
+    plug :require_login, [
+      flash_key: :info,
+      flash_msg: "You must be logged in.",
+      redirect_to: "/login"
+    ]
+  end
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
