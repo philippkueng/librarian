@@ -19,22 +19,7 @@
         </div>
       </div>
     </div>
-    <div class="jumbotron">
-      <%= if logged_in?(@conn) do %>
-        <%= current_user(@conn).email %>
-        <a class="btn btn-primary btn-lg" href="<%= session_path @conn, :delete %>">
-          <i class="fa fa-session"></i>
-          Logout
-        </a>
-      <% else %>
-        <a class="btn btn-primary btn-lg" href="<%= session_path @conn, :new %>">
-          <i class="fa fa-session"></i>
-          Login
-        </a>
-      <% end %>
-    </div>
-
-    <div class="container-fluid">
+    <div class="container">
       <%= @inner %>
     </div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"</script>

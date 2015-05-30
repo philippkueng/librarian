@@ -1,5 +1,16 @@
 <div class="row">
-  <div class="col-lg-12">
-    <h1>tbd</h1>
+  <div class="col-md-12">
+    <%= if logged_in?(@conn) do %>
+      <%= current_user(@conn).email %>
+      <a class="btn btn-primary" href="<%= session_path @conn, :delete %>">
+        <i class="fa fa-session"></i>
+        Logout
+      </a>
+    <% else %>
+      <a class="btn btn-primary" href="<%= session_path @conn, :new %>">
+        <i class="fa fa-session"></i>
+        Login
+      </a>
+    <% end %>
   </div>
 </div>
