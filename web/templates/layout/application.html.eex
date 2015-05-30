@@ -17,6 +17,19 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="/">Librarian</a>
         </div>
+        <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <%= if logged_in?(@conn) do %>
+            <li>
+              <a href="<%= session_path @conn, :delete %>">Logout</a>
+            </li>
+          <% else %>
+            <li>
+              <a href="<%= session_path @conn, :new %>">Login</a>
+            </li>
+          <% end %>
+        </ul>
+        </div>
       </div>
     </div>
     <div class="container">

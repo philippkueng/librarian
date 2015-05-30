@@ -1,16 +1,19 @@
 <div class="row">
   <div class="col-md-12">
     <%= if logged_in?(@conn) do %>
-      <%= current_user(@conn).email %>
-      <a class="btn btn-primary" href="<%= session_path @conn, :delete %>">
-        <i class="fa fa-session"></i>
-        Logout
-      </a>
+      Hello <%= current_user(@conn).email %>
+      <br>
+      <br>
+      <ul>
+        <li>
+          Login with <a href="<%= google_path @conn, :index %>">Google</a>.
+        </li>
+        <li>
+          Login with <a href="<%= github_path @conn, :index %>">Github</a>.
+        </li>
+      </ul>
     <% else %>
-      <a class="btn btn-primary" href="<%= session_path @conn, :new %>">
-        <i class="fa fa-session"></i>
-        Login
-      </a>
+      Please login.
     <% end %>
   </div>
 </div>
