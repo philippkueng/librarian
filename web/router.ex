@@ -44,6 +44,11 @@ defmodule Librarian.Router do
       get "/", GithubController, :index
       get "/callback", GithubController, :callback
     end
+
+    scope "/google", Authentication do
+      get "/", GoogleController, :index
+      get "/callback", GoogleController, :callback
+    end
   end
 
   # Other scopes may use custom stacks.
