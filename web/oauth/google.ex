@@ -21,12 +21,8 @@ defmodule Google do
   end
 
   def authorize_url!(params \\ []) do
-    scope = ["https://www.googleapis.com/auth/userinfo.email",
-             "https://www.googleapis.com/auth/drive.readonly",
-             "https://www.googleapis.com/auth/calendar.readonly",
-             "https://www.googleapis.com/auth/gmail.readonly"
-            ]
-            |> Enum.join(",")
+    scope = "https://www.googleapis.com/auth/calendar"
+
 
     new()
     |> put_param(:scope, scope)
