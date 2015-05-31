@@ -30,6 +30,8 @@ defmodule Google do
 
     new()
     |> put_param(:scope, scope)
+    |> put_param(:access_type, "offline")
+    |> put_param(:approval_prompt, "force")
     |> OAuth2.Client.authorize_url!(params)
   end
 
