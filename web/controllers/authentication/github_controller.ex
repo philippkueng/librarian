@@ -32,7 +32,7 @@ defmodule Librarian.Authentication.GithubController do
     # If you need to make additional resource requests, you may want to store
     # the access token as well.
     conn
-    |> put_session(:current_user, user)
+    |> put_session(:current_user_github, user)
     |> put_session(:access_token, token.access_token)
     |> redirect(to: "/")
   end
