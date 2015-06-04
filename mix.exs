@@ -17,8 +17,10 @@ defmodule Librarian.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Librarian, []},
-     applications: [:phoenix, :cowboy, :logger, :ecto, :oauth2]]
+     applications: environment_variables(Mix.env)]
   end
+
+  defp application_list, do: [:phoenix, :cowboy, :logger, :ecto, :oauth2]
 
   # Specifies which paths to compile per environment
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -38,4 +40,8 @@ defmodule Librarian.Mixfile do
      {:passport, git: "https://github.com/opendrops/passport.git", ref: "060e1dc3650a4806ec51770e247f5903f6212391"},
      {:dotenv, "~> 1.0.0"}]
   end
+
+  defp environment_variables(:dev), do: [:dotenv | application_list]
+  defp environment_variables(_), do: application_list
+
 end
