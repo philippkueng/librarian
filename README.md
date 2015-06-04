@@ -7,6 +7,7 @@ A prototype for a unified search application across cloud services.
 ## Development
 
 * Install dependencies with `mix deps.get`
+* Copy the file `.env-dist` to `.env` all fill out the variables
 * Create the database and load the migrations
 
 ```bash
@@ -14,6 +15,6 @@ mix ecto.create
 mix ecto.migrate
 ```
 
-* Start the Phoenix endpoint with `foreman start -e .env_dev`
+* Start the Phoenix endpoint with `mix phoenix.server`
 
-Now you can visit `localhost:5000` from your browser.
+Now you can visit [localhost:5000](http://localhost:5000/) from your browser.
