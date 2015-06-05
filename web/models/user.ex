@@ -12,8 +12,12 @@ defmodule Librarian.User do
     timestamps
   end
 
-  @required_fields ~w(email crypted_password)
-  @optional_fields ~w()
+  @required_fields ~w(email
+                      crypted_password)
+  @optional_fields ~w(name
+                      google_client_id
+                      google_client_secret
+                      google_refresh_token)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
