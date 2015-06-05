@@ -5,6 +5,9 @@ defmodule Librarian.User do
     field :name, :string
     field :email, :string
     field :crypted_password, :string
+    field :google_client_id, :string
+    field :google_client_secret, :string
+    field :google_refresh_token, :string
 
     timestamps
   end
