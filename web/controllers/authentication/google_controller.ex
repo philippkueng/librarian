@@ -21,6 +21,10 @@ defmodule Librarian.Authentication.GoogleController do
     # Exchange an auth code for an access token
     token = Google.get_token!(code: code)
 
+    # extract the attributes that need to be saved to the database
+    %{client: %{client_id: client_id,
+                client_secret: client_secret},
+      refresh_token: refresh_token} = token
     # Request the user's data with the access token
     user = OAuth2.AccessToken.get!(token, "/oauth2/v1/userinfo")
 
