@@ -25,6 +25,9 @@
             </li>
           <% else %>
             <li>
+              <a href="<%= registration_path @conn, :new %>">Signup</a>
+            </li>
+            <li>
               <a href="<%= session_path @conn, :new %>">Login</a>
             </li>
           <% end %>
