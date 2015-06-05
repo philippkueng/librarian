@@ -36,6 +36,8 @@
       </div>
     </div>
     <div class="container">
+      <%= get_flash @conn, :info %>
+      <%= get_flash @conn, :error %>
       <%= @inner %>
     </div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"</script>
