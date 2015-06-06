@@ -36,8 +36,14 @@
       </div>
     </div>
     <div class="container">
-      <%= get_flash @conn, :info %>
-      <%= get_flash @conn, :error %>
+      <% flash_info = get_flash @conn, :info %>
+      <%= if flash_info do %>
+        <div class="alert alert-warning" role="alert"><%= flash_info %></div>
+      <% end %>
+      <% flash_error = get_flash @conn, :error %>
+      <%= if flash_error do %>
+        <div class="alert alert-success" role="alert"><%= flash_error %></div>
+      <% end %>
       <%= @inner %>
     </div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"</script>
