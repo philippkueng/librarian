@@ -7,6 +7,8 @@ defmodule Librarian.Service do
     field :client_secret, :string
     field :refresh_token, :string
 
+    belongs_to :user, Librarian.User
+
     timestamps
   end
 

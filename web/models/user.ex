@@ -9,6 +9,8 @@ defmodule Librarian.User do
     field :google_client_secret, :string
     field :google_refresh_token, :string
 
+    has_many :services, Librarian.Service
+
     timestamps
   end
 
