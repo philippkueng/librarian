@@ -1,5 +1,5 @@
 defmodule Librarian.ServiceTest do
-  use Librarian.ModelCase
+  use Librarian.ConnCase
 
   alias Librarian.Service
 
