@@ -5,11 +5,9 @@
       <br>
       <br>
       <ul>
-        <%= if current_user(@conn).google_client_id == nil do %>
-          <li>
-            Login with <a href="<%= google_path @conn, :index %>">Google</a>.
-          </li>
-        <% end %>
+        <li>
+          Login with <a href="<%= google_path @conn, :index %>">Google</a>.
+        </li>
         <li>
           Login with <a href="<%= github_path @conn, :index %>">Github</a>.
         </li>
