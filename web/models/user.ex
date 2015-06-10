@@ -5,9 +5,6 @@ defmodule Librarian.User do
     field :name, :string
     field :email, :string
     field :crypted_password, :string
-    field :google_client_id, :string
-    field :google_client_secret, :string
-    field :google_refresh_token, :string
 
     has_many :services, Librarian.Service
 
@@ -16,10 +13,7 @@ defmodule Librarian.User do
 
   @required_fields ~w(email
                       crypted_password)
-  @optional_fields ~w(name
-                      google_client_id
-                      google_client_secret
-                      google_refresh_token)
+  @optional_fields ~w(name)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
