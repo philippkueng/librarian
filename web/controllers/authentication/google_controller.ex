@@ -64,22 +64,14 @@ defmodule Librarian.Authentication.GoogleController do
         conn
         |> put_flash(:info, "Google was successfully connected.")
         |> redirect(to: page_path(conn, :index))
+
+      else
+        conn
+        |> put_flash(:error, "Couldn't authenticate with Google.")
+        |> redirect(to: page_path(conn, :index))
       end
     end
 
-
-    if changeset.valid? do
-      Repo.update(changeset)
-
-      conn
-      |> put_flash(:info, "Authenticated with Google successfully.")
-      |> redirect(to: page_path(conn, :index))
-    else
-      conn
-      |> put_flash(:error, "Couldn't authenticate with Google.")
-      |> redirect(to: page_path(conn, :index))
-    end
-    
     # Store the user in the session under `:current_user` and redirect to /.
     # In most cases, we'd probably just store the user's ID that can be used
     # to fetch from the database. In this case, since this example app has no
