@@ -1,6 +1,9 @@
 defmodule Librarian.Authentication.GoogleController do
   use Librarian.Web, :controller
   alias Librarian.User
+  alias Librarian.Service
+
+  import Ecto.Query
 
   plug :action
 
@@ -35,9 +38,35 @@ defmodule Librarian.Authentication.GoogleController do
 
     # Fetch the current user from the database
     user = Repo.get(User, get_session(conn, :current_user))
-    changeset = User.changeset(user, %{google_client_id: client_id,
-                                       google_client_secret: client_secret,
-                                       google_refresh_token: refresh_token})
+
+    # Check if that user already has a Google Service connected
+    # Get all services for current user
+    services = Repo.all(
+      from s in Service,
+      where: s.user_id == ^user_id,
+      where: s.provider == "google"
+    )
+
+    if length(services) == 0 do
+      # insert a new service entry for that user
+
+      changeset = Service.changeset(%Service{}, %{
+          provider: "google",
+          client_id: client_id,
+          client_secret: client_secret,
+          refresh_token: refresh_token,
+          user_id: user_id
+        })
+
+      if changeset.valid? do
+        Repo.insert(changeset)
+
+        conn
+        |> put_flash(:info, "Google was successfully connected.")
+        |> redirect(to: page_path(conn, :index))
+      end
+    end
+
 
     if changeset.valid? do
       Repo.update(changeset)
