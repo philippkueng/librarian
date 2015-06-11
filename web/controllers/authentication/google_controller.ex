@@ -27,6 +27,9 @@ defmodule Librarian.Authentication.GoogleController do
                 client_secret: client_secret},
       refresh_token: refresh_token} = token
 
+    # Extract the user_id from the session
+    user_id = get_session(conn, :current_user)
+
     # Request the user's data with the access token
     user_data = OAuth2.AccessToken.get!(token, "/oauth2/v1/userinfo")
 
