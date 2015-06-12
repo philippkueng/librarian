@@ -12,7 +12,7 @@ defmodule Librarian.Service do
     timestamps
   end
 
-  @required_fields ~w(provider client_id client_secret refresh_token)
+  @required_fields ~w(provider client_id client_secret refresh_token user_id)
   @optional_fields ~w()
 
   @doc """
