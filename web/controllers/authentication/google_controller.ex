@@ -41,14 +41,34 @@ defmodule Librarian.Authentication.GoogleController do
 
     # Check if that user already has a Google Service connected
     # Get all services for current user
-    services = Repo.all(
+    service = Repo.one(
       from s in Service,
       where: s.user_id == ^user_id,
-      where: s.provider == "google"
+      where: s.provider == "google",
+      where: s.client_id == ^client_id
     )
 
-    if length(services) == 0 do
-      # insert a new service entry for that user
+    if service do
+      # The service is already connected, therefore update the entry.
+      changeset = Service.changeset(service, %{
+        client_secret: client_secret,
+        refresh_token: refresh_token
+      })
+
+      if changeset.valid? do
+        Repo.update(changeset)
+
+        conn
+        |> put_flash(:info, "Google credentials were successfully updated")
+        |> redirect(to: page_path(conn, :index))
+      else
+        conn
+        |> put_flash(:error, "Couldn't update the Google credentials.")
+        |> redirect(to: page_path(conn, :index))
+      end
+
+    else
+      # Insert a new service entry for that user.
 
       changeset = Service.changeset(%Service{}, %{
           provider: "google",
