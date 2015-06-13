@@ -3,7 +3,7 @@ defmodule Librarian.ServiceTest do
 
   alias Librarian.Service
 
-  @valid_attrs %{client_id: "some content", client_secret: "some content", provider: "some content", refresh_token: "some content"}
+  @valid_attrs %{client_id: "some content", client_secret: "some content", provider: "some content", refresh_token: "some content", user_id: 1}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
