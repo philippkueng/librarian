@@ -48,12 +48,16 @@ defmodule Librarian.Authentication.GoogleController do
       where: s.client_id == ^client_id
     )
 
+    changeset = Service.changeset(%Service{}, %{
+        provider: "google",
+        client_id: client_id,
+        client_secret: client_secret,
+        refresh_token: refresh_token,
+        user_id: user_id
+      })
+
     if service do
       # The service is already connected, therefore update the entry.
-      changeset = Service.changeset(service, %{
-        client_secret: client_secret,
-        refresh_token: refresh_token
-      })
 
       if changeset.valid? do
         Repo.update(changeset)
@@ -69,14 +73,6 @@ defmodule Librarian.Authentication.GoogleController do
 
     else
       # Insert a new service entry for that user.
-
-      changeset = Service.changeset(%Service{}, %{
-          provider: "google",
-          client_id: client_id,
-          client_secret: client_secret,
-          refresh_token: refresh_token,
-          user_id: user_id
-        })
 
       if changeset.valid? do
         Repo.insert(changeset)
@@ -105,4 +101,3 @@ defmodule Librarian.Authentication.GoogleController do
     |> redirect(to: "/")
   end
 end
-
