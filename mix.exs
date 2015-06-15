@@ -41,6 +41,7 @@ defmodule Librarian.Mixfile do
   end
 
   defp application_list(:dev), do: [:dotenv | application_list]
+  defp application_list(:test), do: [:hound | application_list]
   defp application_list(_), do: application_list
   defp application_list, do: [:phoenix, :cowboy, :logger, :ecto, :oauth2]
 
