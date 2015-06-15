@@ -9,8 +9,12 @@ dependencies:
     # Javascript folders
     - "bower_components"
     - "node_modules"
+
+    # Cache the erlang binary
+    - "erlang-solutions_1.0_all.deb"
   pre:
-    - wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+    - if [[ ! -e erlang-solutions_1.0_all.deb ]]; then wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+    - sudo dpkg -i erlang-solutions_1.0_all.deb
     - sudo apt-get update
     - sudo apt-get install elixir
 
