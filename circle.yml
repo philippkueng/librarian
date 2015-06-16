@@ -19,7 +19,7 @@ dependencies:
     # Cache the selenium jar
     - "selenium-server-standalone-2.46.0.jar"
   pre:
-    - script/ci/prepare.sh
+    - ci/prepare.sh
     - if [ ! -e selenium-server-standalone-2.46.0.jar ]; then wget http://selenium-release.storage.googleapis.com/2.46/selenium-server-standalone-2.46.0.jar; fi
 
   post:
@@ -28,4 +28,4 @@ dependencies:
 
 test:
   override:
-    - script/ci/tests.sh
+    - ci/tests.sh
