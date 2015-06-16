@@ -37,7 +37,7 @@ defmodule Librarian.Mixfile do
      {:oauth2, "~> 0.1.1"},
      {:passport, git: "https://github.com/opendrops/passport.git", ref: "060e1dc3650a4806ec51770e247f5903f6212391"},
      {:dotenv, "~> 1.0.0"},
-     {:hound, "~> 0.7.2" }]
+     {:hound, "~> 0.7.2", only: :test}]
   end
 
   defp application_list(:dev), do: [:dotenv | application_list]
