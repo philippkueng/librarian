@@ -10,16 +10,16 @@ dependencies:
     - "bower_components"
     - "node_modules"
 
-    # Cache the erlang binary
-    - "erlang-solutions_1.0_all.deb"
+    # Cache the Erlang & Elixir directories
+    - ~/dependencies
+    - ~/.mix
+    - _build
+    - deps
 
     # Cache the selenium jar
     - "selenium-server-standalone-2.46.0.jar"
   pre:
-    - if [ ! -e erlang-solutions_1.0_all.deb ]; then wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb; fi
-    - sudo dpkg -i erlang-solutions_1.0_all.deb
-    - sudo apt-get update
-    - sudo apt-get install elixir
+    - script/ci/prepare.sh
     - if [ ! -e selenium-server-standalone-2.46.0.jar ]; then wget http://selenium-release.storage.googleapis.com/2.46/selenium-server-standalone-2.46.0.jar; fi
 
   post:
@@ -28,4 +28,4 @@ dependencies:
 
 test:
   override:
-    - yes | MIX_ENV=test mix do deps.get, compile, test
+    - script/ci/tests.sh
