@@ -28,4 +28,4 @@ dependencies:
 
 test:
   override:
-    - ci/tests.sh
+    - ci/test.sh
