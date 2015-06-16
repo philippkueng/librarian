@@ -21,7 +21,7 @@ dependencies:
   pre:
     - if [ ! -e erlang-solutions_1.0_all.deb ]; then wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb; fi
     - sudo dpkg -i erlang-solutions_1.0_all.deb
-    - if [ ! e elixir.deb]; then wget "http://packages.erlang-solutions.com/site/esl/elixir/FLAVOUR_2_download/elixir_1.0.4-1~ubuntu~trusty_amd64.deb" -O elixir.deb; fi
+    - if [ ! e elixir.deb ]; then wget "http://packages.erlang-solutions.com/site/esl/elixir/FLAVOUR_2_download/elixir_1.0.4-1~ubuntu~trusty_amd64.deb" -O elixir.deb; fi
     - sudo dpkg -i elixir.deb
     - if [ ! -e selenium-server-standalone-2.46.0.jar ]; then wget http://selenium-release.storage.googleapis.com/2.46/selenium-server-standalone-2.46.0.jar; fi
 
