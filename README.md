@@ -7,7 +7,7 @@ A prototype for a unified search application across cloud services.
 ## Development
 
 * Install dependencies with `mix deps.get`
-* Copy the file `.env-dist` to `.env` all fill out the variables
+* Copy the file `.env-dist` to `.env` and fill out all the variables
 * Create the database and load the migrations
 
 ```bash
