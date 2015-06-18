@@ -2,7 +2,6 @@
 
 set -e
 
-# If you have a elixir_buildpack.config, do this instead:
 export ERLANG_VERSION=$(cat elixir_buildpack.config | grep erlang_version | tr "=" " " | awk '{ print $2 }')
 export ELIXIR_VERSION=v$(cat elixir_buildpack.config | grep elixir_version | tr "=" " " | awk '{ print $2 }')
 
