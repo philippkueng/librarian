@@ -13,7 +13,7 @@
         </li>
       </ul>
     <% else %>
-      Please login.
+      Please <a href="<%= session_path @conn, :new %>">login</a>.
     <% end %>
   </div>
 </div>
