@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-md-12">
     <%= if logged_in?(@conn) do %>
-      Hello <%= current_user(@conn).email %>
+      <% user = current_user(@conn) %>
+      Hello <%= user.email %>
       <br>
       <br>
       <ul>
