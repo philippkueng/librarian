@@ -18,3 +18,19 @@ mix ecto.migrate
 * Start the Phoenix endpoint with `mix phoenix.server`
 
 Now you can visit [localhost:5000](http://localhost:5000/) from your browser.
+
+## Tests
+
+In order to run the tests locally make sure you have selenium-server-standalone installed and running. (easiest via homebrew)
+
+```bash
+brew update
+brew install selenium-server-standalone
+selenium-server -p 4444 # to start it on port 4444
+```
+
+Then you're ready to run the tests with mix.
+
+```bash
+mix test
+```
