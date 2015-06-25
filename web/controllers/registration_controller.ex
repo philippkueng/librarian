@@ -15,10 +15,10 @@ defmodule Librarian.RegistrationController do
   def create(conn, %{"registration" => registration_params}) do
     case RegistrationManager.register(registration_params) do
       {:ok} -> conn
-         |> put_flash(:info, "Registration success")
+         |> put_flash(:info, "Registration successful.")
          |> redirect(to: page_path(conn, :index))
       _ -> conn
-         |> put_flash(:info, "Registration failed")
+         |> put_flash(:info, "Registration failed.")
          |> redirect(to: page_path(conn, :index))
     end
   end
