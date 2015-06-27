@@ -1,6 +1,10 @@
 defmodule Librarian.User do
   use Librarian.Web, :model
 
+  import Ecto.Query
+  alias Librarian.Repo
+  alias Librarian.Service
+
   schema "users" do
     field :name, :string
     field :email, :string
@@ -24,5 +28,11 @@ defmodule Librarian.User do
   def changeset(model, params \\ nil) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def get_services() do
+    Repo.all(
+      from s in Service
+    )
   end
 end
