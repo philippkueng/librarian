@@ -30,9 +30,10 @@ defmodule Librarian.User do
     |> cast(params, @required_fields, @optional_fields)
   end
 
-  def get_services() do
+  def get_services(user_id) do
     Repo.all(
-      from s in Service
+      from s in Service,
+      where: s.user_id == ^user_id
     )
   end
 end

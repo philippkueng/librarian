@@ -15,7 +15,7 @@
       </ul>
       <h2>Connected Services:</h2>
       <ul>
-        <%= for service <- Librarian.User.get_services() do %>
+        <%= for service <- Librarian.User.get_services(user.id) do %>
           <li>
             <%= service.provider %>
           </li>
