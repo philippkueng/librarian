@@ -13,14 +13,17 @@
           Login with <a href="<%= github_path @conn, :index %>">Github</a>.
         </li>
       </ul>
-      <h2>Connected Services:</h2>
-      <ul>
-        <%= for service <- Librarian.User.get_services(user.id) do %>
-          <li>
-            <%= service.provider %>
-          </li>
-        <% end %>
-      </ul>
+      <% connected_services = Librarian.User.get_services(user.id) %>
+      <%= if length(connected_services) > 0 do %>
+        <h2>Connected Services:</h2>
+        <ul>
+          <%= for service <- connected_services do %>
+            <li>
+              <%= service.provider %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
     <% else %>
       Please <a href="<%= session_path @conn, :new %>">login</a>.
     <% end %>
