@@ -4,8 +4,6 @@ defmodule Librarian.RegistrationController do
   alias Librarian.User
   alias Passport.RegistrationManager
 
-  plug :action
-
   def new(conn, _params) do
     conn
     |> put_session(:foo, "bar")

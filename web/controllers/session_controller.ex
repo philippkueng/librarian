@@ -3,8 +3,6 @@ defmodule Librarian.SessionController do
   alias Passport.SessionManager
   alias Librarian.User
 
-  plug :action
-
   def new(conn, _params) do
     render conn, "new.html"
   end
