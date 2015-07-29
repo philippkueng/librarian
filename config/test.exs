@@ -16,4 +16,5 @@ config :librarian, Librarian.Repo,
   password: "postgres",
   database: "librarian_test",
   size: 1,
-  max_overflow: false
+  max_overflow: false,
+  pool: Ecto.Adapters.SQL.Sandbox
