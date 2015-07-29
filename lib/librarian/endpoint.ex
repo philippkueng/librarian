@@ -26,8 +26,7 @@ defmodule Librarian.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_librarian_key",
-    signing_salt: "1RCesAuX",
-    encryption_salt: "+wy+0U1o"
+    signing_salt: "1RCesAuX"
 
-  plug :router, Librarian.Router
+  plug Librarian.Router
 end
