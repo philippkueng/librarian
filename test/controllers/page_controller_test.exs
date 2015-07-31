@@ -10,7 +10,7 @@ defmodule Librarian.PageControllerTest do
     assert conn.resp_body =~ "Librarian"
   end
 
-  test "GET / with selenium", meta do
+  test "GET / with selenium" do
     navigate_to("/")
     assert page_title() == "Librarian"
     assert page_source =~ "Login"
