@@ -22,9 +22,12 @@ defmodule Librarian.SessionControllerTest do
   end
 
   test "fill out login form with correct password" do
+    user = %{
+      email: "foo@foo.com",
+      password: "foobar"}
+
     # Create the test user
-    RegistrationManager.register(%{email: "foo@foo.com",
-                                   password: "foobar"})
+    RegistrationManager.register(user)
 
     navigate_to("/login")
 
