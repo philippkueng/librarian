@@ -58,7 +58,7 @@ defmodule Librarian.Authentication.GoogleController do
       # The service is already connected, therefore update the entry.
 
       if changeset.valid? do
-        Repo.update(changeset)
+        Repo.update!(changeset)
 
         conn
         |> put_flash(:info, "Google credentials were successfully updated")
