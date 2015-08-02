@@ -46,7 +46,17 @@ defmodule Librarian.Authentication.GoogleController do
       where: s.client_id == ^client_id
     )
 
-    changeset = Service.changeset(%Service{}, %{
+    # Helper function to return a service struct in case no service entry is being returned.
+    service_or_empty_struct = fn ->
+      if service do
+        service
+      else
+        %Service{}
+      end
+    end
+
+    changeset = Service.changeset(
+      service_or_empty_struct.(), %{
         provider: "google",
         client_id: client_id,
         client_secret: client_secret,
@@ -56,7 +66,6 @@ defmodule Librarian.Authentication.GoogleController do
 
     if service do
       # The service is already connected, therefore update the entry.
-
       if changeset.valid? do
         Repo.update!(changeset)
 
