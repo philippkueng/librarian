@@ -37,6 +37,10 @@ defmodule Librarian.Router do
     post "/signup", RegistrationController, :create
   end
 
+  scope "/api", Librarian do
+    pipe_through :api
+    get "/search", SearchController, :index
+  end
   scope "/authentication", Librarian do
     pipe_through [:browser, :authentication]
 
