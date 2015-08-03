@@ -85,7 +85,7 @@ defmodule Librarian.Authentication.GoogleController do
       # Insert a new service entry for that user.
 
       if changeset.valid? do
-        Repo.insert(changeset)
+        Repo.insert!(changeset)
 
         conn
         |> put_flash(:info, "Google was successfully connected.")
