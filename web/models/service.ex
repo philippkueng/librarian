@@ -6,13 +6,14 @@ defmodule Librarian.Service do
     field :client_id, :string
     field :client_secret, :string
     field :refresh_token, :string
+    field :provider_identificator, :string
 
     belongs_to :user, Librarian.User
 
     timestamps
   end
 
-  @required_fields ~w(provider client_id client_secret refresh_token user_id)
+  @required_fields ~w(provider client_id client_secret refresh_token user_id provider_identificator)
   @optional_fields ~w()
 
   @doc """
