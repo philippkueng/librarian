@@ -19,7 +19,7 @@
         <ul>
           <%= for service <- connected_services do %>
             <li>
-              <%= service.provider %>
+              <%= service.provider %> &mdash; <%= service.provider_identificator %>
             </li>
           <% end %>
         </ul>
