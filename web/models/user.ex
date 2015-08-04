@@ -9,6 +9,7 @@ defmodule Librarian.User do
     field :name, :string
     field :email, :string
     field :crypted_password, :string
+    field :api_key, :string
 
     has_many :services, Librarian.Service
 
@@ -17,7 +18,8 @@ defmodule Librarian.User do
 
   @required_fields ~w(email
                       crypted_password)
-  @optional_fields ~w(name)
+  @optional_fields ~w(name
+                      api_key)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
