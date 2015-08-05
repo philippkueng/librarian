@@ -37,12 +37,13 @@ defmodule Librarian.Mixfile do
      {:oauth2, "~> 0.1.1"},
      {:passport, "~> 0.0.3"},
      {:dotenv, "~> 1.0.0"},
-     {:hound, "~> 0.7.2", only: :test}]
+     {:hound, "~> 0.7.2", only: :test},
+     {:httpoison, "~> 0.7"}]
   end
 
   defp application_list(:dev), do: [:dotenv | application_list]
   defp application_list(:test), do: [:hound | application_list]
   defp application_list(_), do: application_list
-  defp application_list, do: [:phoenix, :cowboy, :logger, :ecto, :oauth2]
+  defp application_list, do: [:phoenix, :cowboy, :logger, :ecto, :oauth2, :httpoison]
 
 end
