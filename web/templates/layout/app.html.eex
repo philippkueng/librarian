@@ -21,6 +21,9 @@
         <ul class="nav navbar-nav navbar-right">
           <%= if logged_in?(@conn) do %>
             <li>
+              <a href="#">Profile</a>
+            </li>
+            <li>
               <a href="<%= session_path @conn, :delete %>">Logout</a>
             </li>
           <% else %>
