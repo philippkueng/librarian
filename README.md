@@ -34,3 +34,7 @@ Then you're ready to run the tests with mix.
 ```bash
 mix test
 ```
+
+## Development
+
+Starting the application via the REPL `iex -S mix phoenix.server`
