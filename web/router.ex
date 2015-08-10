@@ -42,6 +42,13 @@ defmodule Librarian.Router do
     pipe_through :api
     get "/search", SearchController, :index
   end
+
+  scope "/profile", Librarian do
+    pipe_through [:browser, :authentication]
+
+    get "/", UserController, :edit
+  end
+
   scope "/authentication", Librarian do
     pipe_through [:browser, :authentication]
 

@@ -34,8 +34,8 @@ defmodule Librarian.UserController do
     render conn, "show.html", user: user
   end
 
-  def edit(conn, %{"id" => id}) do
-    user = Repo.get(User, id)
+  def edit(conn, _params) do
+    user = Repo.get(User, 1) # please change later
     changeset = User.changeset(user)
     render conn, "edit.html", user: user, changeset: changeset
   end
