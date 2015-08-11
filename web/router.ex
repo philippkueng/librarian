@@ -27,7 +27,6 @@ defmodule Librarian.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/users", UserController
 
     # Login & Registration
     get "/login", SessionController, :new
